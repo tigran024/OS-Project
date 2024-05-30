@@ -35,20 +35,20 @@ void handle_request(char *request, char *response) {
 
     sscanf(request, "%s %d %d", command, &account_number, &amount);
 
-    if (strcmp(command, "print_balance") == 0) {
+    if (strcmp(command, "print") == 0) {
         if (account_number >= 0 && account_number < num_accounts) {
             sprintf(response, "Current balance of account %d: %d\n", account_number, accounts[account_number].current_balance);
         } else {
             sprintf(response, "Invalid account number.\n");
         }
-    } else if (strcmp(command, "freeze_account") == 0) {
+    } else if (strcmp(command, "freeze") == 0) {
         if (account_number >= 0 && account_number < num_accounts) {
             accounts[account_number].is_frozen = 1;
             sprintf(response, "Account %d frozen.\n", account_number);
         } else {
             sprintf(response, "Invalid account number.\n");
         }
-    } else if (strcmp(command, "unfreeze_account") == 0) {
+    } else if (strcmp(command, "unfreeze") == 0) {
         if (account_number >= 0 && account_number < num_accounts) {
             accounts[account_number].is_frozen = 0;
             sprintf(response, "Account %d unfrozen.\n", account_number);
