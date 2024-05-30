@@ -73,7 +73,12 @@ void handle_request(char *request, char *response) {
         } else {
             sprintf(response, "Invalid account number.\n");
         }
-    } else {
+    } 
+
+        else if (strcmp(command, "shutdown")==0){
+            exit(0);    
+        }
+        else {
         sprintf(response, "Unknown command.\n");
     }
 }
